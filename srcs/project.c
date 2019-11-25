@@ -6,49 +6,39 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/17 16:15:08 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:06:33 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_double(t_map *map, t_coords *c1, t_coords *c2, int i, int j, t_mlx *mlx)
+void		iso(int *x, int *y, int z)
 {
-	c1->x = 50 * i + 200;
-	c1->y = 50 * j + 200;
-	if (map->cols > j)
-	{
-		c2->x = c1->x + 50;
-		c2->y = c1->y;
-		ft_draw_line(mlx, c1, c2);
-	}
-	if (map->rows > i)
-	{
-		c2->x = c1->x;
-		c2->y = c1->y + 50;
-		ft_draw_line(mlx, c1, c2);
-	}
+	int	prev_x;
+	int	prev_y;
+
+	prev_x = *x;
+	prev_y = *y;
+	*x = (prev_x - prev_y) * cos(0.523599);
+	*y = -z + (prev_x + prev_y) * sin(0.523599);
 }
 
-void	ft_map_img(t_map *map, t_mlx *mlx)
+t_coords	new_point(int x, int y, t_map *map)
 {
-	int i;
-	int j;
-	t_coords *c1;
-	t_coords *c2;
-	if (!(c1 = (t_coords*)malloc(sizeof(t_coords))))
-		return ;
-	if (!(c2 = (t_coords*)malloc(sizeof(t_coords))))
-		return ;
-	i = 0;
-	while (i < map->rows)
-	{
-		j = 0;
-		while (j < map->cols)
-		{
-			draw_double(map, c1, c2, i, j, mlx);
-			j++;
-		}
-		i++;
-	}
+	t_coords	point;
+
+	point.x = x;
+	point.y = y;
+	point.z = map->tab[y][x];
+	return (point);
+}
+
+t_coords	project(t_coords point)
+{
+	point.x *= 20;
+	point.y *= 20;
+	iso(&point.x, &point.y, point.z);
+	point.x += 200;
+	point.y += 200;
+	return (point);
 }
