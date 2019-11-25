@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/25 15:06:33 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/25 17:01:27 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		iso(int *x, int *y, int z)
 	*y = -z + (prev_x + prev_y) * sin(0.523599);
 }
 
-t_coords	new_point(int x, int y, t_map *map)
+t_coords	ft_new_point(int x, int y, t_map *map)
 {
 	t_coords	point;
 
@@ -33,12 +33,12 @@ t_coords	new_point(int x, int y, t_map *map)
 	return (point);
 }
 
-t_coords	project(t_coords point)
+t_coords	ft_project(t_coords point, t_mlx *mlx)
 {
-	point.x *= 20;
-	point.y *= 20;
+	point.x *= mlx->size_x;
+	point.y *= mlx->size_y;
 	iso(&point.x, &point.y, point.z);
-	point.x += 200;
-	point.y += 200;
+	point.x += mlx->offset_x;
+	point.y += mlx->offset_y;
 	return (point);
 }
