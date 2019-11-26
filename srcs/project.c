@@ -6,11 +6,12 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/25 17:01:27 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/26 15:29:56 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
 void		iso(int *x, int *y, int z)
 {
@@ -37,7 +38,8 @@ t_coords	ft_project(t_coords point, t_mlx *mlx)
 {
 	point.x *= mlx->size_x;
 	point.y *= mlx->size_y;
-	iso(&point.x, &point.y, point.z);
+	if (mlx->iso)
+		iso(&point.x, &point.y, point.z);
 	point.x += mlx->offset_x;
 	point.y += mlx->offset_y;
 	return (point);

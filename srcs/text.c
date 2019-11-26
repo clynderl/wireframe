@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:37:51 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/25 17:41:57 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/26 14:28:27 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_put_controls_text(t_mlx *mlx)
 
 	x = 30;
 	y = 30;
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xFFFFFF, "Controls:");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xC0C0C0, "Controls:");
 }

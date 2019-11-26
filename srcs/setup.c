@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 11:29:58 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/25 17:43:32 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/26 15:27:57 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	ft_mlx_img_setup(t_mlx *mlx)
 {
-	int		bpp;
-	int		sl;
 	int		endian;
 
 	mlx->img = mlx_new_image(mlx->mlx_ptr, mlx->width, mlx->height);
-	mlx->str = (int *)mlx_get_data_addr(mlx->img, &bpp, &sl, &endian);
+	mlx->str = (int *)mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->sl, &endian);
 }
 
 void	ft_set_size(t_mlx *mlx, t_map *map)
@@ -47,6 +45,6 @@ t_mlx	*ft_mlx_setup(char *title)
 	mlx->height = 1080;
 	mlx->width = 1920;
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->width, mlx->height, title);
-
+	mlx->iso = 1;
 	return (mlx);
 }
