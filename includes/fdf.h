@@ -6,17 +6,17 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/25 17:40:41 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/26 15:01:24 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "libft.h"
-# include "mlx.h"
 # include <unistd.h>
 # include <fcntl.h>
+# include "libft.h"
+# include "mlx.h"
 # include "math.h"
 
 typedef	struct	s_coords
@@ -41,11 +41,16 @@ typedef	struct	s_mlx
 	int			width;
 	void		*img;
 	int			*str;
+	int			bpp;
+	int			sl;
 	int			size_x;
 	int			size_y;
 	int			size_z;
 	int			offset_x;
 	int			offset_y;
+	int			iso;
+	int			max_x;
+	int			max_y;
 }				t_mlx;
 
 t_map			*ft_parse(char *file);
@@ -60,4 +65,6 @@ void			ft_set_size(t_mlx *mlx, t_map *map);
 void			ft_hookssetup(t_mlx *mlx);
 void			ft_draw_background(t_mlx *mlx);
 void			ft_put_controls_text(t_mlx *mlx);
+int				ft_get_color(t_coords start, t_coords end,
+				t_coords curr, t_coords delta);
 #endif
