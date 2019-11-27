@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/26 15:01:24 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 13:26:52 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef	struct	s_coords
 {
 	int			x;
 	int			y;
-	id_t		z;
+	int			z;
+	int			color;
 }				t_coords;
 
 typedef	struct	s_map
@@ -31,6 +32,8 @@ typedef	struct	s_map
 	int			**tab;
 	int			cols;
 	int			rows;
+	int			z_min;
+	int			z_max;
 }				t_map;
 
 typedef	struct	s_mlx
@@ -49,8 +52,7 @@ typedef	struct	s_mlx
 	int			offset_x;
 	int			offset_y;
 	int			iso;
-	int			max_x;
-	int			max_y;
+	t_map		*map;
 }				t_mlx;
 
 t_map			*ft_parse(char *file);
@@ -67,4 +69,7 @@ void			ft_draw_background(t_mlx *mlx);
 void			ft_put_controls_text(t_mlx *mlx);
 int				ft_get_color(t_coords start, t_coords end,
 				t_coords curr, t_coords delta);
+void			ft_map_min_max(t_map *map);
+int				ft_default_color(int z, t_map *map);
+
 #endif
