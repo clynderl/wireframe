@@ -6,12 +6,11 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/26 15:29:56 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 13:06:56 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 void		iso(int *x, int *y, int z)
 {
@@ -31,6 +30,7 @@ t_coords	ft_new_point(int x, int y, t_map *map)
 	point.x = x;
 	point.y = y;
 	point.z = map->tab[y][x];
+	point.color = ft_default_color(point.z, map);
 	return (point);
 }
 
@@ -38,6 +38,7 @@ t_coords	ft_project(t_coords point, t_mlx *mlx)
 {
 	point.x *= mlx->size_x;
 	point.y *= mlx->size_y;
+	point.z *= 5;
 	if (mlx->iso)
 		iso(&point.x, &point.y, point.z);
 	point.x += mlx->offset_x;

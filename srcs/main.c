@@ -6,12 +6,11 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 18:41:01 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/26 16:15:42 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 13:46:03 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 int		ft_usage(void)
 {
@@ -33,12 +32,12 @@ int		main(int argc, char *argv[])
 	}
 	if (!(mlx = ft_mlx_setup(argv[1])))
 		return (0);
+	ft_map_min_max(map);
 	ft_set_size(mlx, map);
 	ft_mlx_img_setup(mlx);
-	ft_draw_background(mlx);
+	mlx->map = map;
 	ft_draw(map, mlx);
 	ft_hookssetup(mlx);
-	ft_put_controls_text(mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }

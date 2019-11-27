@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 12:25:44 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/26 15:43:52 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 13:42:06 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,8 @@ void	ft_put_pixel(t_mlx *mlx, int x, int y, int color)
 
 	if (x >= 0 && y >= 0 && x < mlx->width && y < mlx->height)
 	{
-	/*i = (x * mlx->bpp / 8) + (y * mlx->sl);*/
 		i = x + mlx->width * y;
 		mlx->str[i] = color;
-		//mlx->str[++i] = color >> 8;
-		//mlx->str[++i] = color >> 16;
 	}
 }
 
@@ -81,11 +78,12 @@ void	ft_draw(t_map *map, t_mlx *mlx)
 	int	x;
 	int	y;
 
-	y = 0;
-	while (y < map->cols)
+	ft_draw_background(mlx);
+	y = -1;
+	while (++y < map->cols)
 	{
-		x = 0;
-		while (x < map->rows)
+		x = -1;
+		while (++x < map->rows)
 		{
 			if (x != map->rows - 1)
 			{
@@ -97,9 +95,8 @@ void	ft_draw(t_map *map, t_mlx *mlx)
 				ft_draw_line(mlx, ft_project(ft_new_point(x, y, map), mlx),
 				ft_project(ft_new_point(x, y + 1, map), mlx));
 			}
-			x++;
 		}
-		y++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img, 0, 0);
+	ft_put_controls_text(mlx);
 }

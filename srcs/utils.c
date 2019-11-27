@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   text.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 17:37:51 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 13:45:44 by clynderl         ###   ########.fr       */
+/*   Created: 2019/11/27 12:49:02 by clynderl          #+#    #+#             */
+/*   Updated: 2019/11/27 13:12:22 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_put_controls_text(t_mlx *mlx)
+void	ft_map_min_max(t_map *map)
 {
-	int x;
-	int y;
+	int i;
+	int j;
+	int min;
+	int max;
 
-	x = 30;
-	y = 30;
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0xC0C0C0, "Controls:");
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "Change projection:");
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "I - ISO | P - Parallel");
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "Esc - Exit");
+	min = map->tab[0][0];
+	max = map->tab[0][0];
+	j = 0;
+	while (j < map->cols)
+	{
+		i = 0;
+		while (i < map->rows)
+		{
+			if (min > map->tab[j][i])
+				min = map->tab[j][i];
+			if (max < map->tab[j][i])
+				max = map->tab[j][i];
+			i++;
+		}
+		j++;
+	}
+	map->z_min = min;
+	map->z_max = max;
 }
