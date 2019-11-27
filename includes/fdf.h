@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 13:26:52 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 14:37:58 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ typedef	struct	s_mlx
 	int			offset_x;
 	int			offset_y;
 	int			iso;
+	int			cam_zoom;
+	int			cam_offset_x;
+	int			cam_offset_y;
 	t_map		*map;
 }				t_mlx;
 
