@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 11:29:58 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 13:25:10 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 14:41:42 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,8 @@ t_mlx	*ft_mlx_setup(char *title)
 	mlx->width = 1920;
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->width, mlx->height, title);
 	mlx->iso = 1;
+	mlx->cam_zoom = 0;
+	mlx->cam_offset_x = 0;
+	mlx->cam_offset_y = 0;
 	return (mlx);
 }

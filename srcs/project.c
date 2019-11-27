@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 13:06:56 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 14:37:44 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ t_coords	ft_new_point(int x, int y, t_map *map)
 
 t_coords	ft_project(t_coords point, t_mlx *mlx)
 {
-	point.x *= mlx->size_x;
-	point.y *= mlx->size_y;
+	point.x *= mlx->size_x + mlx->cam_zoom;
+	point.y *= mlx->size_y + mlx->cam_zoom;
 	point.z *= 5;
 	if (mlx->iso)
 		iso(&point.x, &point.y, point.z);
-	point.x += mlx->offset_x;
-	point.y += mlx->offset_y;
+	point.x += mlx->offset_x + mlx->cam_offset_x;
+	point.y += mlx->offset_y + mlx->cam_offset_y;
 	return (point);
 }
