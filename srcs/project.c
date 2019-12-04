@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 14:37:44 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/04 17:00:07 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ t_coords	ft_new_point(int x, int y, t_map *map)
 	point.x = x;
 	point.y = y;
 	point.z = map->tab[y][x];
-	point.color = ft_default_color(point.z, map);
+	point.color = map->colors[y][x] == 0
+				? ft_default_color(point.z, map) : map->colors[y][x];
 	return (point);
 }
 

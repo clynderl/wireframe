@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 12:25:44 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 13:42:06 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/11/27 15:22:42 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_draw_background(t_mlx *mlx)
 		j = 0;
 		while (j < mlx->width)
 		{
-			if (j < mlx->width / 5)
+			if (j < mlx->width / 6)
 				mlx->str[i * mlx->width + j] = 0x161616;
 			else
 				mlx->str[i * mlx->width + j] = 0x242424;

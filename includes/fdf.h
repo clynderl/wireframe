@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 14:37:58 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/04 16:53:32 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef	struct	s_coords
 typedef	struct	s_map
 {
 	int			**tab;
+	int			**colors;
 	int			cols;
 	int			rows;
 	int			z_min;
@@ -74,5 +75,5 @@ int				ft_get_color(t_coords start, t_coords end,
 				t_coords curr, t_coords delta);
 void			ft_map_min_max(t_map *map);
 int				ft_default_color(int z, t_map *map);
-
+int				ft_atoi_base(char *str, int base);
 #endif

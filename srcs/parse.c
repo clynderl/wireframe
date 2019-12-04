@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:12:42 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 12:48:22 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/04 17:01:33 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,35 @@ int		*ft_get_line_values(char *line, int rows)
 	return (tab);
 }
 
+int		ft_col_val(t_map *map, char *line, int c)
+{
+	int	i;
+	int	pos;
+
+	if (!(map->colors[c] = (int*)malloc(sizeof(int) * map->rows)))
+		return (0);
+	i = 0;
+	pos = 0;
+	while (line[i])
+	{
+		while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
+			i++;
+		if (line[i] >= '0' && line[i] <= '9')
+		{
+			map->colors[c][pos] = 0;
+			pos++;
+		}
+		while (line[i] && line[i] != ' '
+			&& line[i] != '\t' && line[i] != '\n')
+		{
+			i++;
+			if (line[i] == ',')
+				map->colors[c][pos - 1] = ft_atoi_base(&line[i + 1], 16);
+		}
+	}
+	return (1);
+}
+
 void	ft_count_dims(t_map *map, char *line)
 {
 	int i;
@@ -65,7 +94,6 @@ t_map	*ft_parse(char *file)
 {
 	t_map	*map;
 	int		fd;
-	int		fd2;
 	char	*line;
 	int		i;
 
@@ -75,17 +103,18 @@ t_map	*ft_parse(char *file)
 		return (NULL);
 	while (get_next_line(fd, &line) > 0)
 		ft_count_dims(map, line);
-	if ((fd2 = open(file, O_RDONLY)) < 0 && !close(fd))
+	if (!close(fd) && (fd = open(file, O_RDONLY)) < 0)
 		return (NULL);
-	if (!(map->tab = (int **)malloc(sizeof(int*) * (map->cols + 1))))
+	if (!(map->tab = (int **)malloc(sizeof(int*) * (map->cols + 1)))
+		|| !(map->colors = (int **)malloc(sizeof(int*) * (map->cols + 1))))
 		return (NULL);
 	i = 0;
-	while (get_next_line(fd2, &line) > 0)
+	while (get_next_line(fd, &line) > 0 && ft_col_val(map, line, i))
 	{
 		map->tab[i++] = ft_get_line_values(line, map->rows);
 		free(line);
 	}
 	map->tab[i] = 0;
-	close(fd2);
+	close(fd);
 	return (map);
 }
