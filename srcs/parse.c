@@ -6,10 +6,9 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:12:42 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/04 17:01:33 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/04 17:34:59 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "fdf.h"
 
@@ -71,21 +70,27 @@ int		ft_col_val(t_map *map, char *line, int c)
 void	ft_count_dims(t_map *map, char *line)
 {
 	int i;
+	int rows;
 
 	i = 0;
 	map->cols++;
-	if (map->rows == 0)
+	rows = 0;
+	while (line[i])
 	{
-		while (line[i])
-		{
-			while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
-				i++;
-			if (line[i] >= '0' && line[i] <= '9')
-				map->rows++;
-			while (line[i] && line[i] != ' '
-			&& line[i] != '\t' && line[i] != '\n')
-				i++;
-		}
+		while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
+			i++;
+		if (line[i] >= '0' && line[i] <= '9')
+			rows++;
+		while (line[i] && line[i] != ' '
+		&& line[i] != '\t' && line[i] != '\n')
+			i++;
+	}
+	if (map->rows == 0 || map->rows == rows)
+		map->rows = rows;
+	else
+	{
+		ft_putendl("Invalid size");
+		exit(0);
 	}
 	free(line);
 }
