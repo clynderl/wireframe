@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:12:42 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/04 17:34:59 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:20:05 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		*ft_get_line_values(char *line, int rows)
 	{
 		while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 			i++;
-		if (line[i] >= '0' && line[i] <= '9')
+		if ((line[i] >= '0' && line[i] <= '9') || line[i] == '-')
 		{
 			tab[pos] = ft_atoi(&line[i]);
 			pos++;
@@ -51,7 +51,7 @@ int		ft_col_val(t_map *map, char *line, int c)
 	{
 		while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 			i++;
-		if (line[i] >= '0' && line[i] <= '9')
+		if ((line[i] >= '0' && line[i] <= '9') || line[i] == '-')
 		{
 			map->colors[c][pos] = 0;
 			pos++;
@@ -79,7 +79,7 @@ void	ft_count_dims(t_map *map, char *line)
 	{
 		while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 			i++;
-		if (line[i] >= '0' && line[i] <= '9')
+		if ((line[i] >= '0' && line[i] <= '9') || line[i] == '-')
 			rows++;
 		while (line[i] && line[i] != ' '
 		&& line[i] != '\t' && line[i] != '\n')

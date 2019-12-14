@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:37:51 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/04 17:13:37 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:39:13 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,7 @@ void	ft_put_controls_text(t_mlx *mlx)
 				y += 30, 0xC0C0C0, "D - Default size");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
 				y += 30, 0xC0C0C0, "Esc - Exit");
+	if (1) {
+
+	}
 }
