@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 11:48:41 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 14:25:09 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef	struct	s_mlx
 }				t_mlx;
 
 t_map			*ft_parse(char *file);
-t_mlx			*ft_mlx_setup(char *title);
+t_mlx			*ft_mlx_setup(char *title, t_map *map);
 void			ft_draw_line(t_mlx *mlx, t_coords c1, t_coords c2);
 void			ft_mlx_img_setup(t_mlx *mlx);
 void			ft_map_img(t_map *map, t_mlx *mlx);
