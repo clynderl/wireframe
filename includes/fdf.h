@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/09 14:12:33 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 11:48:41 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef	struct	s_coords
 {
 	int			x;
 	int			y;
-	int			z;
+	double		z;
 	int			color;
 }				t_coords;
 
@@ -58,6 +58,9 @@ typedef	struct	s_mlx
 	int			cam_zoom;
 	int			cam_offset_x;
 	int			cam_offset_y;
+	double		alpha;
+	double		beta;
+	double		gamma;
 	t_map		*map;
 }				t_mlx;
 
@@ -82,4 +85,6 @@ void			ft_change_projection(int key, t_mlx *mlx);
 void			ft_zoom(int key, t_mlx *mlx);
 void			ft_move_cam(int key, t_mlx *mlx);
 void			ft_default_opt(int key, t_mlx *mlx);
+void			ft_rotate(int key, t_mlx *mlx);
+void			ft_iso(int *x, int *y, int z);
 #endif
