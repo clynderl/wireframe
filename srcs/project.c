@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/11 16:49:35 by clynderl         ###   ########.fr       */
+/*   Updated: 2019/12/14 13:27:42 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void		iso(int *x, int *y, int z)
 
 	prev_x = *x;
 	prev_y = *y;
-	*x = (prev_x - prev_y) * cos(0.523599);
-	*y = -z + (prev_x + prev_y) * sin(0.523599);
+	*x = (prev_x - prev_y) * cos(0.615472907);
+	*y = -z + (prev_x + prev_y) * sin(0.615472907);
 }
 
 void		x_rotation(int *y, int *z, double ang)

@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:12:42 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/11 18:20:05 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:49:51 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,13 @@ t_map	*ft_parse(char *file)
 	char	*line;
 	int		i;
 
-	if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
+	if ((fd = open(file, O_RDONLY)) == -1)
 		return (NULL);
-	if ((fd = open(file, O_RDONLY)) < 0)
+	if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
 		return (NULL);
 	while (get_next_line(fd, &line) > 0)
 		ft_count_dims(map, line);
-	if (!close(fd) && (fd = open(file, O_RDONLY)) < 0)
+	if ((!close(fd) && (fd = open(file, O_RDONLY)) < 0) || map->rows == 0)
 		return (NULL);
 	if (!(map->tab = (int **)malloc(sizeof(int*) * (map->cols + 1)))
 		|| !(map->colors = (int **)malloc(sizeof(int*) * (map->cols + 1))))
