@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:12:42 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/09 14:49:51 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 15:51:58 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,16 @@ void	ft_count_dims(t_map *map, char *line)
 	else
 	{
 		ft_putendl("Invalid size");
+		free(line);
 		exit(0);
 	}
 	free(line);
+}
+
+t_map	*free_and_ret(t_map *map)
+{
+	free(map);
+	return (NULL);
 }
 
 t_map	*ft_parse(char *file)
@@ -109,7 +116,7 @@ t_map	*ft_parse(char *file)
 	while (get_next_line(fd, &line) > 0)
 		ft_count_dims(map, line);
 	if ((!close(fd) && (fd = open(file, O_RDONLY)) < 0) || map->rows == 0)
-		return (NULL);
+		return (free_and_ret(map));
 	if (!(map->tab = (int **)malloc(sizeof(int*) * (map->cols + 1)))
 		|| !(map->colors = (int **)malloc(sizeof(int*) * (map->cols + 1))))
 		return (NULL);
