@@ -6,39 +6,39 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 12:04:56 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 14:45:43 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		x_rotate(int *y, double *z, double alpha)
+void		ft_rotatation_x(int *y, double *z, double a)
 {
 	int previous_y;
 
 	previous_y = *y;
-	*y = previous_y * cos(alpha) + *z * sin(alpha);
-	*z = -previous_y * sin(alpha) + *z * cos(alpha);
+	*y = previous_y * cos(a) + *z * sin(a);
+	*z = -previous_y * sin(a) + *z * cos(a);
 }
 
-void		y_rotate(int *x, double *z, double beta)
+void		ft_rotatation_y(int *x, double *z, double b)
 {
 	int previous_x;
 
 	previous_x = *x;
-	*x = previous_x * cos(beta) + *z * sin(beta);
-	*z = -previous_x * sin(beta) + *z * cos(beta);
+	*x = previous_x * cos(b) + *z * sin(b);
+	*z = -previous_x * sin(b) + *z * cos(b);
 }
 
-void		z_rotate(int *x, int *y, double gamma)
+void		ft_rotatation_z(int *x, int *y, double g)
 {
 	int previous_x;
 	int previous_y;
 
 	previous_x = *x;
 	previous_y = *y;
-	*x = previous_x * cos(gamma) - previous_y * sin(gamma);
-	*y = previous_x * sin(gamma) + previous_y * cos(gamma);
+	*x = previous_x * cos(g) - previous_y * sin(g);
+	*y = previous_x * sin(g) + previous_y * cos(g);
 }
 
 t_coords	ft_new_point(int x, int y, t_map *map)
@@ -55,18 +55,21 @@ t_coords	ft_new_point(int x, int y, t_map *map)
 
 t_coords	ft_project(t_coords point, t_mlx *mlx)
 {
-	double z_mult;
-
-	point.x *= mlx->size_x + mlx->cam_zoom;
-	point.y *= mlx->size_y + mlx->cam_zoom;
-	z_mult = mlx->map->z_max > 0 ? 300 / (double)mlx->map->z_max : 3;
-	point.z *= z_mult;
+	point.x *= mlx->cam_zoom;
+	point.y *= mlx->cam_zoom;
+	point.z *= mlx->cam_zoom / 1;
+	point.x -= (mlx->map->rows * mlx->cam_zoom) / 2;
+	point.y -= (mlx->map->cols * mlx->cam_zoom) / 2;
 	if (mlx->iso)
 		ft_iso(&point.x, &point.y, point.z);
-	x_rotate(&point.y, &point.z, mlx->alpha);
-	y_rotate(&point.x, &point.z, mlx->beta);
-	z_rotate(&point.x, &point.y, mlx->gamma);
-	point.x += mlx->offset_x + mlx->cam_offset_x;
-	point.y += mlx->offset_y + mlx->cam_offset_y;
+	ft_rotatation_x(&point.y, &point.z, mlx->alpha);
+	ft_rotatation_y(&point.x, &point.z, mlx->beta);
+	ft_rotatation_z(&point.x, &point.y, mlx->gamma);
+	//point.x += mlx->offset_x + mlx->cam_offset_x;
+	//point.y += mlx->offset_y + mlx->cam_offset_y;
+	point.x += (mlx->width - mlx->width / 6)
+			/ 2 + mlx->cam_offset_x + mlx->width / 6;
+	point.y += (mlx->height + mlx->map->cols * mlx->cam_zoom) / 2
+				+ mlx->cam_offset_y;
 	return (point);
 }

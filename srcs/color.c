@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:12:57 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 14:15:07 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 13:32:22 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ int		ft_default_color(int z, t_map *map)
 
 	perc = ft_percent(map->z_min, map->z_max, z);
 	if (perc < 0.2)
-		return (0x8FBC8F);
-	else if (perc < 0.5)
-		return (0xDAA520);
+		return (0x000099);
+	else if (perc < 0.4)
+		return (0x3792CB);
+	else if (perc < 0.6)
+		return (0x2E856E);
 	else if (perc < 0.8)
 		return (0xFFE4C4);
 	else

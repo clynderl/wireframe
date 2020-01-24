@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 17:20:08 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 11:48:59 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 14:34:13 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_zoom(int key, t_mlx *mlx)
 	if (key == 13)
 		mlx->cam_zoom += 1;
 	else if (key == 1)
-		mlx->cam_zoom = (mlx->size_x - 1 + mlx->cam_zoom - 1) >= 1 ?
+		mlx->cam_zoom = (mlx->cam_zoom - 1) >= 1 ?
 		mlx->cam_zoom - 1 : mlx->cam_zoom;
 	ft_draw(mlx->map, mlx);
 }
@@ -50,7 +50,8 @@ void	ft_default_opt(int key, t_mlx *mlx)
 	{
 		mlx->cam_offset_x = 0;
 		mlx->cam_offset_y = 0;
-		mlx->cam_zoom = 0;
+		mlx->cam_zoom = FT_MIN((mlx->width - mlx->width / 6) /
+		mlx->map->rows / 2, mlx->height / mlx->map->cols / 2);
 		mlx->iso = 1;
 		mlx->alpha = 0;
 		mlx->beta = 0;
