@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:00:19 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/04 17:19:56 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 11:49:19 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int		key_press(int key, void *param)
 		ft_zoom(key, mlx);
 	if (key == 126 || key == 125 || key == 123 || key == 124)
 		ft_move_cam(key, mlx);
+	if (key == 83 || key == 84 || key == 85 || key == 86
+	|| key == 87 || key == 88 || key == 89 || key == 90 || key == 92)
+		ft_rotate(key, mlx);
 	if (key == 2)
 		ft_default_opt(key, mlx);
 	return (0);

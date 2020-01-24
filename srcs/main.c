@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 18:41:01 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/09 14:50:29 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 12:50:51 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ int		main(int argc, char *argv[])
 	ft_draw(map, mlx);
 	ft_hookssetup(mlx);
 	mlx_loop(mlx->mlx_ptr);
-	//free(mlx);
-	//free(map);
 	return (0);
 }

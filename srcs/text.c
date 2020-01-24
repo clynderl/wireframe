@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:37:51 by clynderl          #+#    #+#             */
-/*   Updated: 2019/12/11 14:39:13 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 11:43:30 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,15 @@ void	ft_put_controls_text(t_mlx *mlx)
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
 				y += 30, 0xC0C0C0, "Change projection:");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "I - ISO | P - Parallel");
+				y += 30, 0xC0C0C0, "I - ISO | P - PARALLEL");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "Arrows - Camera move");
+				y += 30, 0xC0C0C0, "ARROWS - CAMERA MOVE");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "W,S - Zoom");
+				y += 30, 0xC0C0C0, "W,S - BIGGER/SMALLER");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "D - Default size");
+				y += 30, 0xC0C0C0, "D - DEFAULT");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "Esc - Exit");
-	if (1) {
-
-	}
+				y += 30, 0xC0C0C0, "NUMS - ROTATE");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
+				y += 30, 0xC0C0C0, "ESC - EXIT");
 }
