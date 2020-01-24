@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 15:41:20 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 13:04:17 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 13:53:54 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include <stdlib.h>
 # include <string.h>
-
+# include "get_next_line.h"
 # define FT_ABS(X) (((X) < 0) ? (-(X)) : (X))
+# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
+# define FT_MAX(A, B) (((A) > (B)) ? (A) : (B))
 
 typedef struct		s_list
 {
