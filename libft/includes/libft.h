@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 15:41:20 by clynderl          #+#    #+#             */
-/*   Updated: 2019/11/27 10:37:50 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/24 13:04:17 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,5 @@ int					ft_islower(int c);
 int					ft_isupper(int c);
 int					ft_getnumsize(unsigned int n);
 int					ft_sqrt(int nb);
-int					get_next_line(const int fd, char **line);
 
 #endif
