@@ -6,22 +6,11 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 15:39:45 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 16:53:07 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void		ft_iso(int *x, int *y, int z)
-{
-	int	prev_x;
-	int	prev_y;
-
-	prev_x = *x;
-	prev_y = *y;
-	*x = (prev_x - prev_y) * cos(0.615472907);
-	*y = -z + (prev_x + prev_y) * sin(0.615472907);
-}
 
 t_coords	ft_new_point(int x, int y, t_map *map)
 {

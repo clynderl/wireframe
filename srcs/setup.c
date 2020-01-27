@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 11:29:58 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 15:46:13 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 16:48:02 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_set_size(t_mlx *mlx, t_map *map)
 	mlx->size_x = size;
 	mlx->size_y = size;
 	mlx->offset_x = (mlx->width / 2);
-	mlx->offset_y = mlx->height - mlx->height / 1.5;
+	mlx->offset_y = mlx->height - mlx->height / 1.3;
 }
 
 t_mlx	*ft_mlx_setup(char *title, t_map *map)

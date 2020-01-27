@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 15:15:05 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 16:58:37 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FDF_H
 
 # include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 # include <fcntl.h>
 # include "libft.h"
 # include "mlx.h"
