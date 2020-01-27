@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 12:33:17 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:15:05 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void			ft_draw_background(t_mlx *mlx);
 void			ft_put_controls_text(t_mlx *mlx);
 int				ft_get_color(t_coords start, t_coords end,
 				t_coords curr, t_coords delta);
-void			ft_map_min_max(t_map *map);
+int				ft_map_min_max(t_map *map);
 int				ft_default_color(int z, t_map *map);
 int				ft_atoi_base(char *str, int base);
 void			ft_change_projection(int key, t_mlx *mlx);
