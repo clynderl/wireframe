@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 12:51:45 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:39:45 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_coords	ft_project(t_coords point, t_mlx *mlx)
 {
 	point.x *= mlx->cam_zoom;
 	point.y *= mlx->cam_zoom;
-	point.z *= mlx->cam_zoom / 1;
+	point.z *= mlx->cam_zoom;
 	point.x -= (mlx->map->rows * mlx->cam_zoom) / 2;
 	point.y -= (mlx->map->cols * mlx->cam_zoom) / 2;
 	if (mlx->iso)
@@ -49,7 +49,7 @@ t_coords	ft_project(t_coords point, t_mlx *mlx)
 	ft_rotatation_z(&point.x, &point.y, mlx->gamma);
 	point.x += (mlx->width - mlx->width / 6)
 			/ 2 + mlx->cam_offset_x + mlx->width / 6;
-	point.y += (mlx->height + mlx->map->cols * mlx->cam_zoom) / 2
+	point.y += (mlx->height + mlx->map->rows * mlx->cam_zoom) / 2
 				+ mlx->cam_offset_y;
 	return (point);
 }

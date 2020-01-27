@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 18:41:01 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 15:41:53 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:46:16 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ int		main(int argc, char *argv[])
 	}
 	if (!(mlx = ft_mlx_setup(argv[1], map)))
 		return (0);
-	ft_map_min_max(map);
+	if (!(ft_map_min_max(map)))
+	{
+		ft_putendl("Error");
+		return (0);
+	}
 	ft_set_size(mlx, map);
 	ft_mlx_img_setup(mlx);
 	mlx->map = map;

@@ -6,37 +6,37 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:49:02 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 12:46:09 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:40:51 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
-void	ft_map_min_max(t_map *map)
+int		ft_map_min_max(t_map *map)
 {
 	int i;
 	int j;
-	int min;
-	int max;
 
-	min = map->tab[0][0];
-	max = map->tab[0][0];
+	map->z_min = map->tab[0][0];
+	map->z_max = map->tab[0][0];
 	j = 0;
 	while (j < map->cols)
 	{
+		if (map->tab[j] == NULL)
+			return (0); //FREE MAP TAB FUNCTION
 		i = 0;
 		while (i < map->rows)
 		{
-			if (min > map->tab[j][i])
-				min = map->tab[j][i];
-			if (max < map->tab[j][i])
-				max = map->tab[j][i];
+			if (map->z_min > map->tab[j][i])
+				map->z_min = map->tab[j][i];
+			if (map->z_max < map->tab[j][i])
+				map->z_max = map->tab[j][i];
 			i++;
 		}
 		j++;
 	}
-	map->z_min = min;
-	map->z_max = max;
+	return (1);
 }
 
 int		ft_is_digit_base(char c, int base)
