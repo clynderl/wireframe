@@ -6,13 +6,13 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:31:16 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 16:49:36 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:02:24 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_iso(int *x, int *y, int z)
+void	ft_iso(int *x, int *y, int z)
 {
 	int	prev_x;
 	int	prev_y;
