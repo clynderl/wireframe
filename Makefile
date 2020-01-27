@@ -6,7 +6,7 @@
 #    By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/04 20:08:05 by clynderl          #+#    #+#              #
-#    Updated: 2020/01/24 13:01:15 by clynderl         ###   ########.fr        #
+#    Updated: 2020/01/27 12:44:57 by clynderl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRC		= color.c \
 		  project.c \
 		  setup.c \
 		  text.c \
+		  rotatations.c \
 		  utils.c
+
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

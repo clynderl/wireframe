@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 14:25:09 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 12:33:17 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,8 @@ void			ft_move_cam(int key, t_mlx *mlx);
 void			ft_default_opt(int key, t_mlx *mlx);
 void			ft_rotate(int key, t_mlx *mlx);
 void			ft_iso(int *x, int *y, int z);
+void			ft_rotatation_x(int *y, double *z, double a);
+void			ft_rotatation_y(int *x, double *z, double b);
+void			ft_rotatation_z(int *x, int *y, double g);
+
 #endif

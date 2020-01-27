@@ -6,13 +6,13 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:31:16 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 12:33:31 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 12:43:38 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_rotatation_x(int *y, double *z, double a)
+void	ft_rotatation_x(int *y, double *z, double a)
 {
 	int p_y;
 
@@ -21,7 +21,7 @@ void		ft_rotatation_x(int *y, double *z, double a)
 	*z = -p_y * sin(a) + *z * cos(a);
 }
 
-void		ft_rotatation_y(int *x, double *z, double b)
+void	ft_rotatation_y(int *x, double *z, double b)
 {
 	int p_x;
 
@@ -30,7 +30,7 @@ void		ft_rotatation_y(int *x, double *z, double b)
 	*z = -p_x * sin(b) + *z * cos(b);
 }
 
-void		ft_rotatation_z(int *x, int *y, double g)
+void	ft_rotatation_z(int *x, int *y, double g)
 {
 	int p_x;
 	int p_y;

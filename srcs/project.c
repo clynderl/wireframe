@@ -6,39 +6,21 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 14:31:38 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 15:59:19 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 12:51:45 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_rotatation_x(int *y, double *z, double a)
+void		ft_iso(int *x, int *y, int z)
 {
-	int previous_y;
+	int	prev_x;
+	int	prev_y;
 
-	previous_y = *y;
-	*y = previous_y * cos(a) + *z * sin(a);
-	*z = -previous_y * sin(a) + *z * cos(a);
-}
-
-void		ft_rotatation_y(int *x, double *z, double b)
-{
-	int previous_x;
-
-	previous_x = *x;
-	*x = previous_x * cos(b) + *z * sin(b);
-	*z = -previous_x * sin(b) + *z * cos(b);
-}
-
-void		ft_rotatation_z(int *x, int *y, double g)
-{
-	int previous_x;
-	int previous_y;
-
-	previous_x = *x;
-	previous_y = *y;
-	*x = previous_x * cos(g) - previous_y * sin(g);
-	*y = previous_x * sin(g) + previous_y * cos(g);
+	prev_x = *x;
+	prev_y = *y;
+	*x = (prev_x - prev_y) * cos(0.615472907);
+	*y = -z + (prev_x + prev_y) * sin(0.615472907);
 }
 
 t_coords	ft_new_point(int x, int y, t_map *map)
