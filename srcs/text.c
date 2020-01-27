@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:37:51 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 11:43:30 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 12:54:36 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_put_controls_text(t_mlx *mlx)
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
 				y += 30, 0xC0C0C0, "D - DEFAULT");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
-				y += 30, 0xC0C0C0, "NUMS - ROTATE");
+				y += 30, 0xC0C0C0, "NUMPUD - ROTATION");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x,
 				y += 30, 0xC0C0C0, "ESC - EXIT");
 }
