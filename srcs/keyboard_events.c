@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 17:20:08 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/24 14:34:13 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 13:00:27 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	ft_rotate(int key, t_mlx *mlx)
 		mlx->beta -= 0.1;
 	else if (key == 88)
 		mlx->beta += 0.1;
-	else if (key == 83)
-		mlx->gamma += 0.1;
 	else if (key == 85)
+		mlx->gamma += 0.1;
+	else if (key == 83)
 		mlx->gamma -= 0.1;
 	ft_draw(mlx->map, mlx);
 }
