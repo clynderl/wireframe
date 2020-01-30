@@ -6,12 +6,27 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:49:02 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 15:40:51 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:29:00 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdio.h>
+
+int		ft_free_map(t_map *map)
+{
+	int i;
+
+	i = 0;
+	while (i < map->rows)
+	{
+		free(map->tab[i]);
+		free(map->colors[i]);
+		i++;
+	}
+	free(map);
+	return (0);
+}
 
 int		ft_map_min_max(t_map *map)
 {
@@ -24,7 +39,7 @@ int		ft_map_min_max(t_map *map)
 	while (j < map->cols)
 	{
 		if (map->tab[j] == NULL)
-			return (0); //FREE MAP TAB FUNCTION
+			return (ft_free_map(map));
 		i = 0;
 		while (i < map->rows)
 		{

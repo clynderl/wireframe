@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 12:31:16 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 17:02:24 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/01/30 18:35:43 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_iso(int *x, int *y, int z)
 
 	prev_x = *x;
 	prev_y = *y;
-	*x = (prev_x - prev_y) * cos(0.615472907);
-	*y = -z + (prev_x + prev_y) * sin(0.615472907);
+	*x = (prev_x - prev_y) * cos(0.615479709);
+	*y = -z + (prev_x + prev_y) * sin(0.615479709);
 }
 
 void	ft_rotatation_x(int *y, double *z, double a)
