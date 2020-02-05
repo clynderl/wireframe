@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 10:06:17 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/30 18:40:03 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/02/02 19:16:47 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void			ft_map_img(t_map *map, t_mlx *mlx);
 t_coords		ft_project(t_coords point, t_mlx *mlx);
 t_coords		ft_new_point(int x, int y, t_map *map);
 void			ft_draw(t_map *map, t_mlx *mlx);
-void			ft_set_size(t_mlx *mlx, t_map *map);
+void			ft_set_size(t_mlx *mlx);
 void			ft_hookssetup(t_mlx *mlx);
 void			ft_draw_background(t_mlx *mlx);
 void			ft_put_controls_text(t_mlx *mlx);
