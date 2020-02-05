@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 18:41:01 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/30 18:20:01 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/02/02 19:22:58 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		main(int argc, char *argv[])
 		ft_putendl("Error");
 		return (0);
 	}
-	ft_set_size(mlx, map);
+	ft_set_size(mlx);
 	ft_mlx_img_setup(mlx);
 	mlx->map = map;
 	ft_draw(map, mlx);

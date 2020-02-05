@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 11:29:58 by clynderl          #+#    #+#             */
-/*   Updated: 2020/01/27 17:38:50 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/02/02 19:16:39 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ void	ft_mlx_img_setup(t_mlx *mlx)
 	mlx->str = (int *)mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->sl, &endian);
 }
 
-void	ft_set_size(t_mlx *mlx, t_map *map)
+void	ft_set_size(t_mlx *mlx)
 {
-	int size_x;
-	int size_y;
-	int size;
+	// int size_x;
+	// int size_y;
+	// int size;
 
-	size_x = mlx->width / 2 / map->rows;
-	size_y = mlx->height / 2 / map->cols;
-	size = size_x <= size_y ? size_x : size_y;
-	mlx->size_x = size;
-	mlx->size_y = size;
+	// size_x = mlx->width / 2 / map->rows;
+	// size_y = mlx->height / 2 / map->cols;
+	// size = size_x <= size_y ? size_x : size_y;
+	// mlx->size_x = size;
+	// mlx->size_y = size;
 	mlx->offset_x = (mlx->width / 2);
 	mlx->offset_y = mlx->height - mlx->height / 2;
 }
